@@ -1,9 +1,17 @@
+import 'dart:convert';
+
 class CreateEmployee {
   String? status;
   Employeee? data;
   String? message;
 
   CreateEmployee({this.status, this.data, this.message});
+
+  static CreateEmployee createEmployeeFromJson(String str) =>
+      CreateEmployee.fromJson(json.decode(str));
+
+  static String createEmployeeToJson(CreateEmployee data) =>
+      jsonEncode(data.toJson());
 
   factory CreateEmployee.fromJson(Map<String, dynamic> json) => CreateEmployee(
         status: json["status"],
