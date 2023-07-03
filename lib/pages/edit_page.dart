@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 
 import '../data/remote/network.dart';
@@ -16,16 +14,16 @@ class EditPage extends StatefulWidget {
 }
 
 class _EditPageState extends State<EditPage> {
-  var id = 0;
+  late var id;
 
   @override
   void initState() {
-    id = ModalRoute.of(context)!.settings.arguments as int;
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
+    id = ModalRoute.of(context)!.settings.arguments as int;
     return Scaffold(
         appBar: AppBar(
           title: const Text('Edit Employee'),
